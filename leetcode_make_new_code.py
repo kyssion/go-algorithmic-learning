@@ -1,6 +1,5 @@
 import argparse
 from asyncio import base_tasks
-import imp
 import logging
 import os
 parser = argparse.ArgumentParser(description='manual to this script')
@@ -39,7 +38,7 @@ if os.path.exists(basePath) is False:
 
 timesEnd = (int((code_num-1)/100)+1)*100
 timesStart = timesEnd - 100 + 1
-aggregation_path = ""+str((int(timesStart/100)+1))+"_code_"+str(timesStart)+"_"+str(timesEnd)
+aggregation_path = ""+str((int(timesStart/100)+1))+"_code"+str(timesStart)+"_"+str(timesEnd)
 
 if os.path.exists(basePath+"/"+aggregation_path) is False:
     os.mkdir(basePath+"/"+aggregation_path)

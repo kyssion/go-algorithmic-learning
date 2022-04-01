@@ -59,8 +59,7 @@ mainFile = open(path_item + "/" + "main.go", 'w')
 mdFile = open(path_item + "/" + "题目.md", 'w')
 
 mainFile.write(
-    '''
-package main
+    '''package main
 
 func main() {
 

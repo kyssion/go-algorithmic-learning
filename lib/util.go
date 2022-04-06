@@ -31,3 +31,12 @@ func ShowListNode(listNode *ListNode) {
 	}
 	println()
 }
+
+func ShowIntArr(arrs [][]int) {
+	for _, arrItem := range arrs {
+		for _, i := range arrItem {
+			fmt.Printf("%d", i)
+		}
+		println()
+	}
+}

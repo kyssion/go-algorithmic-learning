@@ -40,3 +40,12 @@ func ShowIntArr(arrs [][]int) {
 		println()
 	}
 }
+
+func ShowStrArr(arrs [][]string) {
+	for _, arrItem := range arrs {
+		for _, i := range arrItem {
+			fmt.Printf("%s ", i)
+		}
+		println()
+	}
+}

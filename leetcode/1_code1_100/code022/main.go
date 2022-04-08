@@ -10,7 +10,7 @@ func main() {
 // ()
 // ((()) ()()
 // ((())) (()()) ()(()) (()())
-func generateParenthesis(n int) []string {
+func generateParenthesisV1(n int) []string {
 	if n == 0 {
 		return []string{}
 	}
@@ -29,6 +29,24 @@ func generateParenthesis(n int) []string {
 			}
 		}
 		ans = nextAns
+	}
+	return ans
+}
+
+func generateParenthesis(n int) []string {
+	return do(n, n, "", []string{})
+}
+
+func do(i int, j int, s string, ans []string) []string {
+	if i == 0 && j == 0 {
+		ans = append(ans, s)
+		return ans
+	}
+	if i > 0 {
+		ans = do(i-1, j, s+"(", ans)
+	}
+	if j > 0 && j > i {
+		ans = do(i, j-1, s+")", ans)
 	}
 	return ans
 }

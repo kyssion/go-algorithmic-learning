@@ -65,9 +65,8 @@ func mergeKListsV1(lists []*lib.ListNode) *lib.ListNode {
 	return ansHeader.Next
 }
 
-// 小顶堆手动实现
-
-func mergeKLists(lists []*lib.ListNode) *lib.ListNode {
+// 小顶堆手动实现 - todo 堆排序这里, 其实之前从上到下搜索没有想到其实是因为这里隐藏了一个条件就是, 转化树中的节点并不会导致输的结构发生变化
+func mergeKListsV2(lists []*lib.ListNode) *lib.ListNode {
 	createHeap(&lists)
 	ansHeader := &lib.ListNode{}
 	itemH := ansHeader
@@ -147,4 +146,37 @@ func addHeap(lists *[]*lib.ListNode, item *lib.ListNode) {
 		}
 		break
 	}
+}
+
+// todo3 - 二分归并排序
+func mergeKLists(lists []*lib.ListNode) *lib.ListNode {
+	if len(lists) == 0 {
+		return nil
+	}
+	if len(lists) == 1 {
+		return lists[0]
+	}
+	leftLists := mergeKLists(lists[0 : len(lists)/2])
+	rightList := mergeKLists(lists[len(lists)/2:])
+	index := &lib.ListNode{}
+	ans := index
+	for {
+		if leftLists == nil {
+			index.Next = rightList
+			break
+		}
+		if rightList == nil {
+			index.Next = leftLists
+			break
+		}
+		if leftLists.Val <= rightList.Val {
+			index.Next = leftLists
+			leftLists = leftLists.Next
+		} else {
+			index.Next = rightList
+			rightList = rightList.Next
+		}
+		index = index.Next
+	}
+	return ans.Next
 }

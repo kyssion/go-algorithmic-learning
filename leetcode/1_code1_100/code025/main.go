@@ -11,7 +11,8 @@ type ListNode struct {
 	Next *lib.ListNode
 }
 
-func reverseKGroup(head *lib.ListNode, k int) *lib.ListNode {
+// todo 优化代码 超出的部分不进行转化
+func reverseKGroupV1(head *lib.ListNode, k int) *lib.ListNode {
 	if k == 1 {
 		return head
 	}

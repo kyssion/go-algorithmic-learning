@@ -3,7 +3,7 @@ package main
 import "go-algorithmic-learning/lib"
 
 func main() {
-	lib.ShowListNode(reverseKGroup(lib.GetListNode([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}), 3))
+	lib.ShowListNode(reverseKGroupV1(lib.GetListNode([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}), 3))
 }
 
 type ListNode struct {
